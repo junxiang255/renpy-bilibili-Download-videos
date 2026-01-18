@@ -85,15 +85,19 @@ label ks_video:
 
     e "你好，欢迎使用快手视频下载器！"
     e "快手的cookie由作者junxiang233提供"
+    e "快手的cookie不知道抽什么风，有可能用不了"
     e "请勿滥用，谢谢合作~"
+    
     $ you_user_id  = renpy.input("请输入你要下载的用户id:")
-
-
+    # $ screen_you_user_id = you_user_id
     e "正在获取视频列表...id:[you_user_id]"
+    show 9 at Turn_left
+    show screen ks_screens 
     $ ks()
     $ nov = int( renpy.input("一共有0-[i]视频，你要观看第几个视频:"))
     $ ks_video_download(nov)
     e "视频保存到了游戏目录里哦~"
+    hide screen ks_screens
     menu:
         "编译视频（因为爬取的视频renpy不支持）":
             jump ks_video_Play
